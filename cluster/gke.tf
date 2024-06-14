@@ -1,15 +1,20 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
+variable "cluster_name" {
+  type = string
+}
+
 variable "kubernetes_version" {
+  type = string
+}
+
+variable "region" {
+  type = string
 }
 
 variable "workers_count" {
   default = "3"
-}
-
-variable "cluster_name" {
-  type = string
 }
 
 variable "idp_enabled" {
@@ -21,6 +26,7 @@ variable "idp_enabled" {
 # This can be replaced with a statically-configured zone, if preferred.
 data "google_compute_zones" "available" {
   provider = google-beta
+  region = var.region
 }
 
 locals {

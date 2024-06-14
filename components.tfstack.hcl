@@ -4,7 +4,10 @@ variable "cluster_name" {
 
 variable "kubernetes_version" {
   type = string
-  default = "1.29"
+}
+
+variable "region" {
+  type = string
 }
 
 component "cluster" {
@@ -17,6 +20,7 @@ component "cluster" {
   inputs = {
     cluster_name = var.cluster_name
     kubernetes_version  = var.kubernetes_version
+    region = var.region
   }
 }
 
