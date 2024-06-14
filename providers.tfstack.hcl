@@ -4,8 +4,8 @@ required_providers {
     version = "2.31.0"
   }
   google = {
-    source  = "hashicorp/google"
-    version = "5.33.0"
+    source  = "hashicorp/google-beta"
+    version = "4.85.0"
   }
 }
 
