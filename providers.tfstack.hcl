@@ -10,12 +10,16 @@ required_providers {
 }
 
 provider "google" "main" {
-  project = var.gcp_project
-  region  = var.region
+  config {
+    project = var.gcp_project
+    region  = var.region
+  }
 }
 
 provider "kubernetes" "main" {
-  host                   = component.cluster.cluster_api
-  cluster_ca_certificate = component.cluster.cluster_ca
-  token                  = component.cluster.token
+  config {
+    host                   = component.cluster.cluster_api
+    cluster_ca_certificate = component.cluster.cluster_ca
+    token                  = component.cluster.token
+  }
 }
