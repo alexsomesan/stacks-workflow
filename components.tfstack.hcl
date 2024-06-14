@@ -2,7 +2,7 @@ component "cluster" {
   source = "./cluster"
 
   providers = {
-    google = providers.google.main
+    google = provider.google.main
   }
 
   inputs = {
@@ -16,6 +16,6 @@ component "kube" {
   source = "./kube"
 
   providers = {
-    kubernetes = providers.kubernetes.main
+    kubernetes = provider.kubernetes.main
   }
 }
