@@ -17,15 +17,14 @@ variable "workers_count" {
   default = "3"
 }
 
-variable "idp_enabled" {
-  type    = bool
-  default = false
-}
+# variable "idp_enabled" {
+#   type    = bool
+#   default = false
+# }
 
 # This is used to set local variable google_zone.
 # This can be replaced with a statically-configured zone, if preferred.
 data "google_compute_zones" "available" {
-  provider = google-beta
   region = var.region
 }
 
@@ -34,15 +33,11 @@ locals {
 }
 
 data "google_container_engine_versions" "supported" {
-  provider = google-beta
-
   location       = local.google_zone
   version_prefix = var.kubernetes_version
 }
 
 resource "google_container_cluster" "default" {
-  provider = google-beta
-
   name               = var.cluster_name
   location           = local.google_zone
   initial_node_count = var.workers_count
@@ -70,9 +65,9 @@ resource "google_container_cluster" "default" {
     ]
   }
 
-  identity_service_config {
-    enabled = var.idp_enabled
-  }
+  # identity_service_config {
+  #   enabled = var.idp_enabled
+  # }
 
   deletion_protection = false
 }
