@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: MPL-2.0
 
 variable "kubernetes_version" {
-  default = "1.27"
 }
 
 variable "workers_count" {
@@ -70,14 +69,4 @@ resource "google_container_cluster" "default" {
   }
 
   deletion_protection = false
-}
-
-
-# Outputs
-output "node_version" {
-  value = google_container_cluster.default.node_version
-}
-
-output "google_zone" {
-  value = local.google_zone
 }
