@@ -69,5 +69,5 @@ resource "google_container_cluster" "default" {
   #   enabled = var.idp_enabled
   # }
 
-  deletion_protection = false
+  # deletion_protection = false
 }

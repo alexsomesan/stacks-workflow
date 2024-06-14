@@ -1,9 +1,9 @@
 output "cluster_api" {
-  value = "https://${data.google_container_cluster.default.endpoint}"
+  value = "https://${google_container_cluster.default.endpoint}"
 }
 
 output "cluster_ca" {
-  value = base64decode(data.google_container_cluster.default.master_auth[0].cluster_ca_certificate)
+  value = base64decode(google_container_cluster.default.master_auth[0].cluster_ca_certificate)
 }
 
 output "token" {
